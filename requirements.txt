@@ -1,0 +1,4 @@
+# make sure to run "pip install -U -t lib -r requirements.txt"
+
+GoogleAppEngineCloudStorageClient==1.9.22.1
+itsdangerous==0.24
