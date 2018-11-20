@@ -12,11 +12,11 @@
         <ul class="navbar-nav navbar-right ml-md-auto">
             <li class="nav-item dropdown">
                 <a aria-expanded="false" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdownUser" role="button">
-                    {{ current_user.full_name }}
+                    {{ current_user.nickname() }}
                     <span class="caret"></span>
                 </a>
                 <div aria-labelledby="navbarDropdownUser" class="dropdown-menu" role="menu">
-                    <a href="{{ uri_for('logout') }}", class="dropdown-item">Logout</a>
+                    <a href="{{ logout_url }}", class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>

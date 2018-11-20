@@ -1,0 +1,44 @@
+{% macro render_alert(alert_class, icon_class, icon_alt, dismissible=False) -%}
+    <div class="alert {{ alert_class }} {{ 'alert-dismissible' if dismissible }}" role="alert">
+        {% if dismissible %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {% endif %}
+        <span class="{{ icon_class }}" aria-hidden="true"></span>
+        <span class="sr-only">{{ icon_sr_alt }}</span>
+        {{ caller() }}
+    </div>
+{%- endmacro %}
+
+{%- macro render_info_alert(dismissible=False) -%}
+    {{ render_alert('alert-info', 'fa fa-info-circle', '',
+        dismissible, caller=caller) }}
+{%- endmacro %}
+
+{%- macro render_success_alert(dismissible=False) -%}
+    {{ render_alert('alert-success', 'fa fa-check-circle', '',
+        dismissible, caller=caller) }}
+{%- endmacro %}
+
+{%- macro render_warning_alert(dismissible=False) -%}
+    {{ render_alert('alert-warning', 'fa fa-exclamation-triangle', '',
+        dismissible, caller=caller) }}
+{%- endmacro %}
+
+{%- macro render_error_alert(dismissible=False) -%}
+    {{ render_alert('alert-danger', 'fa fa-exclamation-circle', '',
+        dismissible, caller=caller) }}
+{%- endmacro %}
+
+{%- macro render_flash_alerts(dismissible=True) %}
+    {% for message, level in get_flashes() %}
+        {%- if level == 'error' %}
+            {% call render_error_alert(dismissible=dismissible) %}{{ message }}{% endcall %}
+        {%- elif level == 'warning' %}
+            {% call render_warning_alert(dismissible=dismissible) %}{{ message }}{% endcall %}
+        {%- elif level == 'success' %}
+            {% call render_success_alert(dismissible=dismissible) %}{{ message }}{% endcall %}
+        {%- else %}
+            {% call render_info_alert(dismissible=dismissible) %}{{ message }}{% endcall %}
+        {%- endif -%}
+    {% endfor %}
+{%- endmacro %}

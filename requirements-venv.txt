@@ -1,5 +1,5 @@
 # local installations of libraries provided on the platform
-Jinja2==2.6
+Jinja2==2.7.3
 MarkupSafe==0.15
 lxml==2.3.5
 pycrypto==2.6

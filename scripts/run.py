@@ -22,9 +22,10 @@ USER_DATA_DIR = appdirs.user_data_dir(APP_ID, 'vm-scheduler')
 if not os.path.isdir(USER_DATA_DIR):
     os.makedirs(USER_DATA_DIR)
 
-
-configs = ['dispatch.yaml']
-modules = ['app.yaml']
+# Put dispatch.yaml in here if you need to use it
+configs = []
+# Add your other service YAML files here
+services = ['app.yaml']
 options = [
         '--application', APP_ID,
         '--storage_path', os.path.join(USER_DATA_DIR, 'store'),
@@ -32,7 +33,7 @@ options = [
         ]
 options += sys.argv[1:]
 
-args = ['dev_appserver.py'] + options + configs + modules
+args = ['dev_appserver.py'] + options + configs + services
 
 try:
     subprocess.call(args)
