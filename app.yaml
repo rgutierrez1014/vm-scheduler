@@ -8,20 +8,37 @@ basic_scaling:
   idle_timeout: 5m
 
 handlers:
-
-- url: /_services/.*
-  script: main.app
+- url: /(robots\.txt|favicon\.ico)
+  static_files: static/\1
+  upload: static/(robots\.txt|favicon\.ico)
+- url: /static/css
+  static_dir: static/css
+- url: /static/js
+  static_dir: static/js
+- url: /static/images
+  static_dir: static/images
+- url: /static/fonts
+  static_dir: static/fonts
+- url: /_ah/start
+  script: app.app
+  secure: always
+- url: /_ah/stop
+  script: app.app
+  secure: always
+- url: /.*
+  script: app.app
   secure: always
   login: admin
 
-- url: /_ah/start
-  script: main.app
-  secure: always
-
-- url: /_ah/stop
-  script: main.app
-  secure: always
+builtins:
+- remote_api: on
 
 libraries:
+- name: markupsafe
+  version: "0.15"
+- name: pycrypto
+  version: "2.6"
+- name: ssl
+  version: "2.7.11"
 - name: webapp2
-  version: latest
+  version: "2.5.2"
