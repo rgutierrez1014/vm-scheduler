@@ -1,0 +1,12 @@
+{% import 'macros/alerts.html' as alerts %}
+{% for message, level in get_flashes() %}
+    {%- if level == 'error' %}
+        {% call alerts.render_error_alert(dismissible=True) %}{{ message }}{% endcall %}
+    {%- elif level == 'warning' %}
+        {% call alerts.render_warning_alert(dismissible=True) %}{{ message }}{% endcall %}
+    {%- elif level == 'success' %}
+        {% call alerts.render_success_alert(dismissible=True) %}{{ message }}{% endcall %}
+    {%- else %}
+        {% call alerts.render_info_alert(dismissible=True) %}{{ message }}{% endcall %}
+    {%- endif -%}
+{% endfor %}

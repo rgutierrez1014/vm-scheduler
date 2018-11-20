@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+{% block head %}
+    <link href="{{ uri_for('static', file='css/default.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <footer class="footer">
+      <div class="container">
+          <div>
+              {% block copyright %}
+              {% endblock %}
+          </div>
+      </div>
+    </footer>
+    {% endblock %}
+{% endblock %}

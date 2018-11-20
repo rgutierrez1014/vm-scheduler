@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ uri_for('static', file='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ uri_for('static', file='css/font-awesome.min.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block head %}{% endblock %}
+    <script src="{{ uri_for('static', file='js/modernizr.js') }}"></script>
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+    {% block modals %}{% endblock %}
+    <script src="{{ uri_for('static', file='js/jquery-1.11.3.min.js') }}"></script>
+    <script src="{{ uri_for('static', file='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ uri_for('static', file='js/jquery.mobile.touch.min.js') }}"></script>
+    {% block tail %}{% endblock %}
+    <script>
+    $('body').on('click', 'a.disabled', function(event) {
+        event.preventDefault();
+    });
+    </script>
+  </body>
+</html>

@@ -15,12 +15,12 @@ class PathPrefixRoute(_PathPrefixRoute):
 
 class StartService(webapp2.RequestHandler):
     def get(self):
-        logging.debug('Starting instance of service "services"')
+        logging.debug('Starting instance of service "default"')
 
 
 class StopService(webapp2.RequestHandler):
     def get(self):
-        logging.debug('Idle timeout reached, shutting down instance of service "services"')
+        logging.debug('Idle timeout reached, shutting down instance of service "default"')
 
 routes = [
     PathPrefixRoute('/_services', [

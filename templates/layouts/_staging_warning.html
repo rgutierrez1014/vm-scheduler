@@ -1,0 +1,10 @@
+{% if APP_ENV == 'staging' %}
+    <div class="container">
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> This is a staging instance.  Unless you are here explicitly for
+            testing, please visit <a href="https://pathways-portal.carnegiehub.org">pathways-portal.carnegiehub.org</a>
+            instead.
+        </div>
+    </div>
+{% endif %}

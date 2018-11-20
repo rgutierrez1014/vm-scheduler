@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% block head %}
+    <link href="{{ uri_for('static', file='css/default.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    {% include 'layouts/_topnav.html' %}
+    {% include 'layouts/_staging_warning.html' %}
+    <div class="container">
+    {% include 'layouts/_flash_alerts.html' %}
+    </div>
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <div>
+                {% block copyright %}
+                {% endblock %}
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+{% endblock %}
