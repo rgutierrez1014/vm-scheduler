@@ -5,4 +5,4 @@ from routes import routes
 
 
 def create_app():
-    return webapp2.WSGIApplication(routes=routes, config=get_config(), debug=(get_app_env() == 'development'))
+    return WSGIApplication(routes=routes, config=get_config(), debug=(get_app_env() == 'development'))

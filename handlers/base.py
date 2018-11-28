@@ -40,10 +40,11 @@ class BaseFrontendHandler(webapp2.RequestHandler):
     def handle_exception(self, exception, debug):
         logging.exception(exception)
         if isinstance(exception, webapp2.HTTPException):
-            self.response.set_status(exception.code)
+            exception_code = exception.code
         else:
-            self.response.set_status(500)
-        self.render_response('errors/base.html',
+            exception_code = 500
+        self.response.set_status(exception_code)
+        self.render_response('views/errors/base.html',
                 exception=exception,
                 exception_code=exception_code,
                 request=self.request,

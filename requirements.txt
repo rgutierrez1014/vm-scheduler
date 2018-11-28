@@ -1,2 +1,4 @@
 Jinja2==2.7.3
+Babel==1.3
+gaerpytz==2015.2
 google-api-python-client==1.6.6

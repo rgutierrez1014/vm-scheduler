@@ -23,14 +23,11 @@ class StopService(webapp2.RequestHandler):
         logging.debug('Idle timeout reached, shutting down instance of service "default"')
 
 routes = [
-    PathPrefixRoute('/_services', [
-        webapp2.Route('/zip_archive/do',
-                handler='handlers.zip_archive.ZipArchiveHandler:do_zip_archive'),
-        webapp2.Route('/zip_archive', methods=['POST'],
-                handler='handlers.zip_archive.ZipArchiveHandler:post')
-    ]),
+    webapp2.Route('/static/<file:.*>', name='static', build_only=True),
     webapp2.Route('/_ah/start',
         handler=StartService),
     webapp2.Route('/_ah/stop',
-        handler=StopService)
+        handler=StopService),
+    webapp2.Route('/', name='home',
+        handler='handlers.home.HomeHandler'),
 ]

@@ -1,0 +1,11 @@
+{% extends 'layouts/default_no_nav.html' %}
+{% block title %}Error | {{ exception_code }}{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>Error code: {{ exception_code }}</h1>
+        </div>
+        <p>Looks like we've encountered an error. Please contact the website administrator.</p>
+        <br/>
+    </div>
+{% endblock %}
