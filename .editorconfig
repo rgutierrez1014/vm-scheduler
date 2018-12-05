@@ -1,30 +1,37 @@
+# Collaborative Technology official EditorConfig file
+#
+# @author Robert Gutierrez
+# @copyright Carnegie Foundation 2018
+# @version 1
+#
+# If you are using a text editor that doesn't natively support
+# EditorConfig, please download the relevant plugin and enable
+# it.
+
 root = true
 
 [*]
 end_of_line = lf
 insert_final_newline = true
+trim_trailing_whitespace = true
 charset = utf-8
 
-[*.py]
-indent_style = space
-indent_size = 4
-
-[*.yaml]
+[*.{yaml,yml,rb,sh}]
 indent_style = space
 indent_size = 2
 
-[*.css]
+[*.html.haml]
+indent_style = space
+indent_size = 2
+
+[{Vagrantfile}]
+indent_style = space
+indent_size = 2
+
+[*.{css,scss,js,html,json,php,py}]
 indent_style = space
 indent_size = 4
 
-[*.js]
-indent_style = space
-indent_size = 4
-
-[*.html]
-indent_style = space
-indent_size = 4
-
-[*.json]
+[*.html.erb]
 indent_style = space
 indent_size = 4
